@@ -20,7 +20,7 @@
 - Data Security;
   - ensures secure movement of data all along;
 
-![layers](https://www.educative.io/api/collection/6064040858091520/6411938009448448/page/4569452697878528/image/5250130053693440)
+![layers](https://user-images.githubusercontent.com/17072046/114637155-adcf3f00-9c96-11eb-9afb-05fcc816d284.jpeg)
 
 # Ways to Ingest Data
 - Depends on the use cases and requirements, but the two primary ways are:
@@ -49,3 +49,53 @@
 - Handling live information;
 
 # Data Pipelines
+- Ensure smooth flow of data;
+- Can apply filters and logic to data;
+- Parallel process via multiple streams;
+- Avoid corruption;
+
+# Distributed Data Processing
+- Diverging large amounts of data to several nodes for parallel processing;
+- Because of distributed nodes and parallel execution, it's _**sclable & highly available**_;
+- Data is made redundant and replicated to avoid data loss;
+
+### Distributed Data PRocessing Technologies
+- MapReduce - Apache Hadoop;
+  - Manages the distributed data processing in several machines in a cluster, running work in parallel, the communication and data transfer;
+  - Used by Facebook (BigData) and Twitter (Analytics);
+  - Preferred for batch processing;
+- Apache Spark;
+  - High performance for both batch and real-time in-stream processing;
+  - Has a cluster manager and distributed data storage, manager handles communication between nodes and storage is for big data; 
+- Apache Storm;
+  -  Used for massive amounts of streaming data;
+  -  Real-time analytics, machine learning etc;
+- Apache Kafka;
+  - Distributed stream processing and messaging platform;
+  - Storage layer involves distributed pub/sub message queue, which helps read & write streams of data like a messaging system;
+  - Used to develop real-time features, like notifications, streams of massive amounts of data, monitoring metrics, messaging and log aggregation;
+
+# Lambda Architecture
+- Leverages both batch & real-time streaming processing to tackle latency issues from regular batching;
+- Joins results from batching and real-time before presenting to the user;
+- Has different streaming layers that converges into one at the end;
+
+### Layers
+- Batch Layer;
+  - take time to process massive amounts of data and generates high accuracy results;
+- Speed Layers;
+  - analytics is run over a small piece of data to provide quick acess to insights, but results are not that accurate; 
+- Serving Layer;
+  - combines the results from both layers;
+
+# Kappa Architecture
+- Single streaming pipeline, flowing data from real-time and batch processing through it;
+- Reduced complexity, since doesn't need to handle separate layers;
+- Not alternative to _Lambda_, used for different use cases;
+- It's preferred if the batch and streaming analytics are faily identical. Lambda is preferred if they're not;
+
+### Layers
+- Speed;
+  - Processing layer; 
+- Serving;
+  - Final layer;
