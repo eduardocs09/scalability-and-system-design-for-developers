@@ -26,3 +26,14 @@
 - Authorization (what a user is allowed to do);
 - Testing;
 - CD pipelines;
+
+# Operations
+- When decisions are made at the level of macro architecture (e.g how to log, monitor, provide configuration parameters), they standardize only the technologies;
+  - Each service has different contexts, so might require monitoring on different metrics, loading different configurations etc;
+- Macro architecture rules can be checked with tests;
+
+# Macro architecture decisions
+- Specifying only a few points in the macro architecture helps focusing;
+- Rules should be minimal (e.g OK to define monitoring technology, but not how to monitor);
+- Macro rules need to be enforced, but should also be in the self-interest of the micro services teams (not applying them means a service can't be deployed or supported in production);
+- Macro architecture can evolve from restrictive rules at the beginning of a project (e.g single tech stack, reduces learning effort and operating costs) to something more flexible;
