@@ -113,5 +113,53 @@
 # Detailed Component Design
 
 ### Feed generation
-
+- Live generation can be slow for users with lots of freidns and following pages;
+- Generating the feed as the user loads the page would be quite slow and have a high latency;
+- For live updates, each status update would result in feed updates for all followers, resulting in high backlogs for the newsfeed generation service;
+- Offline generation:
+  - Dedicated servers that are continuously generating users'newsfeed and storing them in memory;
+  - Whenever we get requests, we serve from the pre-generated stored location;
+- How many feed items to store?
+  - Depends;
+  - Since most users don't browse through more than 10 pages of content, we can store 10 * 20 posts = 200 items as a start;
+  - If the user wants to see more, we can query the BE servers;
+- Should we store the feed for all users?
+  - We can LRU based cache to remove users' feed frome memory that haven't accessed their fedd in a long time;
+  - We can create something more advanced and predict login patterns and pre-generate at times we know they'll use the app;
+ 
 ### Feed publishing
+- Pushing a post to all users is called fanout;
+- Push approach is called fanout-on-write, the pull approach is called fanout-on-load;
+
+### Pull or fanout-on-load
+- We need to keep all the recent data in memory so that users can pull it from servers;
+- Clients can pull frequently or manually whenever they need it;
+- Issues:
+  - New data might not show until they pull;
+  - Hard to find thr right pull cadence, since most pulls will result in empty responses;
+  - Possible waste of resources;
+
+### Push or fanout-on-write
+- We can immediately push new data to all followeres;
+- Significantly reduces read operations;
+- Users have to maintain a long poll request to receive updates;
+- Issues:
+  - Hot user with millions of followers will cause a push update to a lot of people;
+
+### Hybrid
+- Combination of both;
+- Stop push updates for hot users and only do it for users with few hundred followers;
+- Another approach would be to limit the push updates just to the online friends and followers;
+- A good approach to get benefits from both methods is push to notify and pull for serving;
+
+# Feed ranking
+- Most straightforward approach is by creatioDate;
+- We can add other features like number of likes, comments, has image/videos and so on and calculate a score based on that;
+
+# Data partitioning
+- Posts and metadata:
+  - Similar strategy to sharding post/metadata from Twitter;
+- Feed data:
+  - Partition based on the userId;
+  - Only storing 500 posts for each user, so we won't run out of space in a single server for all of a user's data;
+  - Apply consistent hashing for growth and replication;
