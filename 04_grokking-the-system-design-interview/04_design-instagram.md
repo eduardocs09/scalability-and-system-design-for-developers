@@ -112,3 +112,46 @@
 - Redundancy will remove single points of failure and provide backups in case of crisis;
 
 # Data sharding
+
+### Partitioning on userId
+- We can all photos from an user in the same shard;
+- Issues:
+  - How do we handle hot users with millions of followers?
+  - Some users have way more photos than others, distribution won't be even;
+  - Storing all photos from user into single shard may cause all of those to become unavailable if we have issues with that shard, or higher latency if its serving higher load;
+
+### Partitioning on photoId
+- Generate unique ids for photos first and then assign a shard. to it;
+- We need a dedicated service/db to generate those;
+- The dedicated service/db will be a single point of failure, so we'd need to address that like in tinyUrl;
+
+# Ranking and news feed generation
+- We need to fetch the latest, most popular and relevant photos of the people th user follows;
+- We'd need to fetch all users a user follows, fetch each one's 100 (if we wanna generate 100 photos for the feed) last photos and givem them to the ranking algorithm;
+- Might run into latency issues, since we need to query multiple databases, perform sorting, merging, ranking;
+- An alternative is to pre generate the feed:
+  - Dedicated servers are continuously generating users news feeds and storing them in a user news feed table
+
+### Sending news feed to users
+- Pull:
+  - clients pull the feed content from servers at regular interval, or manually;
+  - new data might not be shown;
+  - most pull requests will result in no updates;
+- Push:
+  - servers push new data to users as soon as it's available;
+  - clients could maintain a long poll request for this;
+- Hybrid:
+  - mixes approach depending on type of users, how many followers they have and so on; 
+
+# News feed creation with sharded data
+- To quickly retrieve the latest photos, we can have creation date as part of the photo id;
+- Since we'll have a primary index on it, it'll be fast to retrieve;
+- The id can have two parts:
+  - time (in epoch seconds - first entry is 0 s)
+  - increment for every second;
+
+# Cache and load balancing
+- We'd need a massive-scale photo delivery system to serve globally distributed users;
+- Service needs to push its content closer to the users using geographically distributed photo cache servers and CDNs;
+- We can have cache for the metadata databases to cache hot database rows;
+- We can use the 80-20 rule to cache the 20% most read of the daily read volume for photos;
