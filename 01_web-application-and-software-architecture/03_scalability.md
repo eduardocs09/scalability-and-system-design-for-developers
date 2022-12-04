@@ -1,16 +1,16 @@
 # Scalability
-- Application's ability to handle & withstand increased workload without sacrificing the latency;
-- Latency is the amount of time a system takes to respond a user's request;
+- Application's ability to handle & withstand increased workload without sacrificing the latency as well as decreased workload;
+- Latency is the amount of time a server takes to respond to a client's request;
 - Latency is divided in two parts: **_Network Latency_** and **_Application Latency_**;
 - High latency is a big factor in customers bouncing off a website;
 
 # Types Of Scalability
 ### Vertical Scaling
 - AKA scale up;
-- Adding more power/resources to your server, like memory and CPUs;
+- Adding more power/resources to our server, like more RAM, upgraded storage and CPU power, without any change in the architecture of application;
 - Ideally it's the first step when traffic starts to build upon your app;
 - It's simple since it doesn't require code refactoring or complex configurations;
-- But it's limited, we can only get to a certain point doing it;
+- It is limited because, as we increase resources, price per resource is low at the start but increases rapidly after certain point.
 
 ### Horizontal Scaling
 - AKA scale out;
@@ -34,7 +34,7 @@
 - Public facing apps with high traffic require high availability, so horizontal scaling and deployed in the cloud would be ideal;
 
 # Bottlenecks that Hurt Scalability
-- A single database in a single server or not shardeed/partioned is a bottleneck, doesn't matter if the application server nodes scale if the DB doesn't;
+- A single database in a single server or not sharded/partitioned is a bottleneck, doesn't matter if the application server nodes scale if the DB doesn't;
 - Poor architecture that doesn't allow asynchronous processes or background tasks;
 - Lack of proper caching;
 - Inneficient load balancer configuration;

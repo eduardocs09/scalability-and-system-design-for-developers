@@ -4,8 +4,8 @@
 - Track service efficiency (e.g health check from millions of IoT devices worldwide);
 
 # Data Ingestion
-- Process of colelcting data streamin-ing from several sources and making it ready to be processed by the system;
-- Data is routed to different components/layers through the _data pipeline_, algorithms are run on it and it's archived;
+- Process of collecting data streaming from several sources and making it ready to be processed by the system;
+- Data is routed to different components/layers through the _data pipeline_, algorithms process the data and is archived;
 
 # Layers of Data Processing Setup
 - Data Collection & Preparation;
@@ -33,8 +33,8 @@
 - Slow Process;
   - Data has to be transformed to common format;
   - Data has to be authenticated;
-  - ETLs are not that effective anymore;
-  - What about reak-time? It's actually not that accurate, since accuracy comes from time spent studying the data;
+  - ETLs(extract, transform, load) are not that effective anymore;
+  - What about real-time? It's actually not that accurate, since accuracy comes from time spent studying the data;
 - Complex & Expensive;
   - Resourse-intensive;
   - Usually takes dedicated teams to pull it off;
@@ -92,7 +92,7 @@
 - Single streaming pipeline, flowing data from real-time and batch processing through it;
 - Reduced complexity, since doesn't need to handle separate layers;
 - Not alternative to _Lambda_, used for different use cases;
-- It's preferred if the batch and streaming analytics are faily identical. Lambda is preferred if they're not;
+- It's preferred if the batch and streaming analytics are fairly identical. Lambda is preferred if they're not;
 
 ### Layers
 - Speed;

@@ -27,7 +27,7 @@
   - Domain (**Hello DDD**);
 - Goal is to make the components independent, loosely coupled and easy to test;
 - The _Domain_ is the core, the businees logic;
-- _Ports_ are the interface with the outside world, like APIs, DB connectores, message queue clients and so on;
+- _Ports_ are the interface with the outside world, like APIs, DB connectors, message queue clients and so on;
 - _Adapters_ convert the data received/sent from _Ports_ into/from the _Domain_;  
 
 # Peer to Peer Architecture
@@ -37,14 +37,14 @@
 - All computer have equal rights;
 - A computer can _seed_ and _leech_ at the same time;
 - Each computer acts as client & server;
-- Data is eschanged over TCP IP just like in HTTP in a client-server model;
+- Data is exchanged over TCP/IP just like in HTTP in a client-server model;
 - P2P design has an overlay network which enables users to connect directly;
 - Nodes/Peers are indexed & discoverable in this overlay network;
 - Big files are divided into chunks, which are transfered in a non-sequential order;
 - Chunks can be downloaded by multiple _leechers_, which start _seeding_ it and making it more available, AKA _Segmented P2P file transfer_;
 
 ### Downsides of a Centralized Architecture
-- Communication is not really secure, sercer has access to all the data;
+- Communication is not really secure, server has access to all the data;
 - Central server going down takes service offline;
 - Organization which owns the central server can maintain or not your data according to their interests;
 
@@ -79,7 +79,7 @@
 
 # Federated Architecture
 - Extension of the _descentralized architecture_;
-- Has entities called _pods_, to which a larger of _nodes_ subscribe to;
+- Has entities called _pods_, to which a larger no of _nodes_ subscribe to;
 - _Pods_ facilitate node discovery;
 - Several _pods_ in the network that are linked to each other and share information with each other;
 - _Pods_ can be hosted by individuals;

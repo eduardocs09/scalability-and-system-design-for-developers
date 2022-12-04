@@ -1,5 +1,5 @@
 # Introduction
-Tiers are physical (not code) logical separations of components in an application or a service.
+Tiers are physical (not code), while a layer is a logical seperation of responsibility within code.
 
 # Single Tier
 All components all reside in the same machine (e.g MS Office, Pc game etc).
@@ -10,12 +10,12 @@ All components all reside in the same machine (e.g MS Office, Pc game etc).
 - data safety, since it's not transmitted over network;
 
 ### Disavantages:
-- no control after application is shipped (hard to bug fix, make improvents, etc);
-- application is vulnerable to be tweaked and reversed engineered;
-- application's performance heavily depends on the user's machine;
+- no control after application is shipped (hard to fix bugs, make improvements, etc);
+- application is vulnerable to tweaking and reverse engineering;
+- application's performance heavily depends on user's machine;
 
 # Two Tier
-Client and server. Client'd have the UI an business logic in one machine. Backend server'd have the DB, which is hosted and controlled by business.
+Client and server. Client's machine has the UI and business logic. Backend server's have the DB, which is hosted and controlled by business.
 
 > Why not have the businees logic in another tier?
 
@@ -44,8 +44,8 @@ Very popular and largely used by simple websites. The UI, application logic and 
 More than 3 components separated physically in their own machines, also called _**distributed applications**_.
 
 Reasons for this level of separation:
-- Single Responsability Principle: each component should have a single responsability and execute it well;
-- Separation of Concerns: each components responsability should overlap as minimal as possible with others';
+- Single Responsibility Principle: each component should have a single responsibility and execute it well;
+- Separation of Concerns: overlap of components responsibility should be as minimal as possible;
 
 ### Layers !== Tiers
 Layers represent the organization of the code, like the UI layer, business layers, service layers, data access layer etc. Tiers are physycal separation of components.
