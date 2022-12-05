@@ -13,7 +13,7 @@
 - Functional:
   - Users can upload, download and view photos;
   - User can search photos and videos by title;
-  - Users can follo other users;
+  - Users can follow other users;
   - System should generate and display a user's News Feed consisting of top photos from all the people the user follows;
 - Non-functional:
   - Highly available;
@@ -114,7 +114,7 @@
 # Data sharding
 
 ### Partitioning on userId
-- We can all photos from an user in the same shard;
+- We can store all photos from an user in the same shard;
 - Issues:
   - How do we handle hot users with millions of followers?
   - Some users have way more photos than others, distribution won't be even;
