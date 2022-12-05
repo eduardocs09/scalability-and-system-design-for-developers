@@ -13,6 +13,7 @@
 - Tricky and dangerous to leverage multiple technologies;
 ### When to Pick
 - When the use cases and requirements are simple;
+- Working on business proof of concept;
 - App is expected to handle a limited amount of traffic;
 
 # Microservices
@@ -41,4 +42,4 @@
 
 ### Dev Team Autonomy
 - In Monoliths, too many developers working in the same codebase can affect productivity;
-- Harder to push isolated changes to prod in a Monolith;
+- Harder to push isolated changes to production in a Monolith;

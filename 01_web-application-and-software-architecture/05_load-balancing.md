@@ -18,11 +18,11 @@
   - _Root Nameserver_;
   - _Top-Level Domain Nameserver_, aka _TLD nameserver_;
   - _Authoritative Nameserver_;
-- Browser sends a reques to the _DNS Resolver_; 
-  - _DNS Resolvers_ are managed by ISPs (data centers conatining clusters of servers optimized to process _DNS queries_);
+- Browser sends a request to the _DNS Resolver_; 
+  - _DNS Resolvers_ are managed by ISPs (data centers conatining clusters of servers optimized to process _DNS queries_ and routing);
 - _DNS Resolver_ forward the request to the _Root nameserver_ to get the address of the _TLD nameserver_;
-- _Root nameserver_ returns the address of the _TLD nameserver_ (e.g the TLD for _a**mazon.com**_ is _**.com)**_;
-- _DNS Resolver_ sends a request to the _TLD nameserver_ to fetch details on the domain name, including the IP address of the domain name server, aka _Authoritative nameserver_;
+- _Root nameserver_ returns the address of the _TLD nameserver_ (e.g the TLD for _**amazon.com**_ is _**.com**)_;
+- _DNS Resolver_ sends a request to the _TLD nameserver_ to fetch details of the domain name, including the IP address of the domain name server, aka _Authoritative nameserver_;
   - _Authoritative nameserver_ is the final end server in the **lookup chain**, owned by the owner of the domain name;
 - _DNS Resolver_ send a request to the _Authoritative nameserver_, which responds with the website's IP address;
 - _DNS Resolver_ caches the information and forwards it to the client;
@@ -68,6 +68,4 @@
 - Weighted Round Robin: takes server's capacity into consideration and assign weights, redirecting more traffic to biggest servers;
 - Least Connections: traffic is directed to the machine with least open connections (can take CPU usage in consideration or not), which comes in handy when the server has long opened connections (like persistent connections in a game);
 - Random;
-- Hash: source IP and the request URL are hashed, ensuring that that client will always get the same server (if the server holds the client's/user's data in a cache, this would improve the UX);
-
-
+- Hash: source IP and the request URL are hashed, ensuring that that client will always get the same server (sticky sessions by load balancers) (if the server holds the client's/user's data in a cache, this would improve the UX);

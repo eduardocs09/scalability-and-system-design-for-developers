@@ -7,7 +7,7 @@
   - Each service just needs to offer an interface for others;
   - Each service's internal structure does not matter;
   - Independent deployments from the rest of the application;
-- Replacing legavy code:
+- Replacing legacy code:
   - Each new service can replace parts of the old codebase;
 - Sustainable development:
   - Microservice-based architecture promises the sytem remains maintenable in the long run;
@@ -21,7 +21,7 @@
 
 # Tradeoffs, Prioritizing Advantages & Levels
 - The reasons for adopting a microservices architecture should focus on increasing the business value;
-- Microservices can be divides by:
+- Microservices can be divided by:
   - Domain isolation;
   - Technical reasons;
 

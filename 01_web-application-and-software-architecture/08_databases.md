@@ -13,7 +13,7 @@
 # NoSQL Databases
 - Built for high frequency read & writes (like Twitter, real-time news or sports apps, online games etc);
 - Easier to scale than Relational DBs:
-  - Relational DBs must be sharded or replicaded, which is hard;
+  - Relational DBs must be sharded or replicated, which is hard;
   - NoSQL can just add new server nodes;
 - Designed to run intelligently (with minimal human intervention) on clusters;
 - Sacrifice consistency and ACID Transactions to scale horizontally over a cluster and across data centers;
@@ -98,11 +98,11 @@
 
 # Time Series Database
 - Optimized for tracking & persisting time series data;
-  - Data containing data points associated with the occurence of an event with respect to timel
+  - Data containing data points associated with the occurence of an event with respect to time
   - Generaly ingested from IoT devices, self-driving vehicles, industry sensors, social networks, stock market;
 - Good for studying data, tracking the behaviour of the system, learning about user patterns & how things change over time;
 - Primarily used for running analytics, deducing conclusions and making future decisions based on analytics;
 
-#Wide Column Database
+# Wide Column Database
 - Primarily used for _Big Data_;
 - Good for analytical use cases, they have high performance and scalable architecture;

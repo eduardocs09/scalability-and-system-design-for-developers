@@ -3,13 +3,14 @@ Works on a _**request-response**_ model.
 
 # Types of Clients
 - Thin Client: just presentation, no business logic. For every action, a request is sent to the backend => 3 tiered of N tiered apps;
-- Thick Client: holds part or all the business logic => two tiered apps;
+- Thick Client: holds part or all the business logic => two tiered apps, ex: single page applications;
 
 # Communication Between the Client & the Server
 
 - Communication happens over HTTP protocol;
 - HTTP is a _**request-response**_ protocol that defines how informations is transmitted accross the web;
-- HTTP is a stateless protocol, every process is executed independently and has no knowledge of previous processes;
+- HTTP is a stateless protocol, every HTTP request has everything needed for getting a response, every request is executed independently and has no knowledge of previous requests;
+- Also in traditional HTTP, always a client has to send a request for getting a response from server.
 
 # REST API
 - API that adheres to the REST architectural constraints;
@@ -46,7 +47,7 @@ Works on a _**request-response**_ model.
 
 # Web Sockets
 - Preferred when we need a persistent **_bi-directional_** low latency data flow from client to server and back;
-- E.g: messaging, chat applications, real-time social streams, browser based multiplayer games;
+- E.g: messaging, chat applications, real-time applications, browser based multiplayer games;
 - They run over TCP, not HTTP;
 
 # AJAX - Long Polling
@@ -57,7 +58,7 @@ Works on a _**request-response**_ model.
 - Makes less requests than regular polling;
 
 # HTML5 Event Source API & Server Sent Events
-- Instead of the cliente polling data, the server automatically pushes data as events;
+- Instead of the client pulling data, the server automatically pushes data as events;
 - Once the client has established the connection with an initial request, servers can initiate data transmission;
 - Avoids unnecessary blank request-responses;
 - Client needs to use the HTML% Event source API;

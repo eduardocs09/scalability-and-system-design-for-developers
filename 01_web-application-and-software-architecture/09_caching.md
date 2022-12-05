@@ -6,7 +6,7 @@
 - We can cache static data:
   - Things like images, font files, CSS and so on.
   - Can be cached on the client-side or on CDNs;
-- Most common usage is database caching, which helps aliviate the stress on the database by intercepting the requests being routed to the database for data;
+- Most common usage is database caching, which helps alleviate the stress on the database by intercepting the requests being routed to the database for data;
 - Can be used at multiple places;
 - Aside the static content in the client and database chace, we can look for patterns and find frequently accessed content accros the application that can be cached;
 - Cache is part of HTTP;
@@ -20,7 +20,7 @@
   - When we look for some data we try to find it in the cache first;
   - If present, just return it to the user;
   - If not, fetch from the DB, saves it in the cache and then return it;
-- Works best with read-heavy loadsm like data which is not freqeuently updated, like a user profile;
+- Works best with read-heavy loads like data which is not freqeuently updated, like a user profile;
 - Data is written directly to the database, which means data in the cache can get inconsistent;
 - Data has a TTL;
 ### Read-Through

@@ -40,7 +40,7 @@
  
 # APIs
 - createURL(api_dev_key, original_url, custom_alias=None, user_name=None, expire_date=None)
-  - api_dev_key: dev api key for the registered account, can be used to throlle users based on their allocated quota;
+  - api_dev_key: dev api key for the registered account, can be used to throttle users based on their allocated quota;
   - original_url: url to be shortened;
   - custom_alias: optional custom key;
   - user_name: optional to be used in the encoding ??
@@ -75,8 +75,8 @@
 
 ### Option 1 - encode the actual URL
 - We need to answer:
-  - What kind of encription to use?
-  - How to shorten the result of the encription?
+  - What kind of encryption to use?
+  - How to shorten the result of the encryption?
   - Strategies to make sure 2 people with the same link don't get the same key?
   
 ### Option 2 - offline key generation
@@ -151,6 +151,6 @@
 - If it's part of the operational DB, how would that be handled if it gets slammed with multiple concurrent requests?
 
 # Security and Permissions
-- Can users create privvate Urls?
+- Can users create private Urls?
 - Can they restrict Urls to group of users?
 - We can have separate table/collection to store those, in which the link hash would be the key;

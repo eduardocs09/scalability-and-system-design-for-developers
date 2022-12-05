@@ -21,5 +21,5 @@
 
 # Messaging Protocols
 - The 2 most popular protocols:
-  - AMQP;
-  - STOMP;
+  - AMQP- Advanced Message Queuing Protocol;
+  - STOMP - Simple (or Streaming) Text Oriented Messaging Protocol;
